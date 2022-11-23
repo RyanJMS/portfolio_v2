@@ -20,8 +20,13 @@ function App() {
   return (
     <div className="App">
       <header className="header">
-        <label className="switch">
-          <input type="checkbox" className="theme" onClick={toggleTheme} />
+        <label for="theme" aria-label="toggle-theme" className="switch">
+          <input
+            name="theme"
+            type="checkbox"
+            className="theme"
+            onClick={toggleTheme}
+          />
           <span className="slider round"></span>
         </label>
         <h1 className="title">Ryan Schock</h1>
