@@ -1,18 +1,25 @@
 import "./App.css";
 import Skills from "./pages/Skills";
+import Links from "./components/Links";
+import Projects from "./pages/Projects";
 
 function App() {
   return (
     <div className="App">
-      <main>
+      <header className="header">
+        <h1 className="title">Ryan Schock</h1>
+        <p className="description">Full Stack Web Developer</p>
+        <Links />
+      </header>
+      <main role="main">
         <div className="container">
-          <header>
-            <h1 className="title">Ryan Schock</h1>
-            <p className="description">Full Stack Web Developer</p>
-          </header>
           <Skills />
+          <Projects />
         </div>
       </main>
+      <footer>
+        <p className="footer-text">&copy; Ryan Schock</p>
+      </footer>
     </div>
   );
 }
