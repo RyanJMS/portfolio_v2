@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "image": "../images/workout-companion.png",
+    "image": "../images/workout-companion.webp",
     "title": "Workout Companion",
     "description": "An app that allows users to search by body part and receive a list of exercises. Built with React, Material UI, and ExerciseDB API",
     "repoLink": "https://github.com/RyanJMS/workout-companion",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "image": "../images/imdb.png",
+    "image": "../images/imdb.webp",
     "title": "IMDB",
     "description": "An IMDb app used to search for films, built with the OMDb API, React, and Material UI.",
     "repoLink": "https://github.com/RyanJMS/imdb",
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "image": "../images/travel.png",
+    "image": "../images/travel.webp",
     "title": "Travel Advisor",
     "description": "A travel advisor app built with React, Google-Map-React, Google Maps API, Open Weather API, Travel Advisor API, and Material UI.",
     "repoLink": "https://github.com/RyanJMS/traveladvisor",
@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "image": "../images/coronapp.png",
+    "image": "../images/coronapp.webp",
     "title": "CoronApp",
     "description": "This application will provide users with a curated feed of COVID-19-related news and social media content.",
     "repoLink": "https://github.com/mjsouthcott/CoronApp",
@@ -33,7 +33,7 @@
   },
   {
     "id": 5,
-    "image": "../images/weather-dashboard.png",
+    "image": "../images/weather-dashboard.webp",
     "title": "Weather App",
     "description": "This is a Weather Dashboard built with HTML,CSS, Javascript, and the OpenWeatherMap API.",
     "repoLink": "https://github.com/RyanJMS/weatherApp_hw6",
@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "image": "../images/half-time.png",
+    "image": "../images/half-time.webp",
     "title": "Half-Time",
     "description": "This is a fantasy soccer app, as well as a general soccer hub. Built with React, and various API's.",
     "repoLink": "https://github.com/diegolehyt/Half-Time",
