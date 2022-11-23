@@ -162,6 +162,18 @@ footer {
   color: #333;
 }
 
+.switch label {
+  margin: 10px;
+}
+
+#light .switch label {
+  color: black;
+}
+
+#dark .switch label {
+  color: white;
+}
+
 html {
   visibility: visible;
   opacity: 1;
