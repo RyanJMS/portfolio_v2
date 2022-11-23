@@ -6,8 +6,9 @@ export default function Projects() {
   return (
     <div>
       <h1 className="page-title">Projects</h1>
-      {data.map((project) => (
+      {data.map((project, key) => (
         <ProjectCard
+          key={key}
           className="grid-item"
           title={project.title}
           image={project.image}
