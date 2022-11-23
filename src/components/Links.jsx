@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css";
 
-export default function Links() {
+export default function Links({ theme }) {
   return (
     <div>
       <ul className="links">
@@ -12,11 +12,18 @@ export default function Links() {
             rel="noreferrer"
             target="_blank"
           >
-            <img
-              alt="github"
-              className="icon"
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg"
-            ></img>
+            {theme === "light" ? (
+              <img
+                alt="github"
+                className="icon github"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg"
+              ></img>
+            ) : (
+              <i
+                alt="github"
+                className="github devicon-github-original-wordmark"
+              ></i>
+            )}
           </a>
         </li>
         <li className="link">

@@ -21,6 +21,7 @@ export default function ProjectCard({
       >
         Github Repo
       </a>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
       <a
         className="project-link"
         rel="noopener"
