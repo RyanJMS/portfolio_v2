@@ -17,7 +17,7 @@
 }
 
 .container {
-  padding-bottom: 10%;
+  padding-bottom: 50px;
   display: block;
   margin: 0 auto;
 }
@@ -63,8 +63,9 @@
 .project-card {
   margin: 0 auto;
   height: 100%;
-  width: 100%;
-  padding-bottom: 10%;
+  width: 80%;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .project-title {
@@ -76,8 +77,8 @@
 }
 
 .project-description {
-  margin-bottom: 20px;
-  margin-top: 10px;
+  margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 .project-link {
@@ -144,8 +145,8 @@ footer {
 }
 
 .footer-text {
-  margin-top: 0.5rem;
   font-size: 1rem;
+  padding-bottom: 20px;
 }
 
 .footer-text:hover {
