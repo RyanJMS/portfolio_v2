@@ -54,6 +54,29 @@ export default function Links({ theme }) {
             ></img>
           </a>
         </li>
+        <li className="link">
+          <a
+            aria-label="Send me an email"
+            href="mailto:ryanjms613@gmail.com"
+            rel="noreferrer"
+            target="_blank"
+          >
+            {theme === "light" ? (
+              <i
+                className="icon fa-regular fa-envelope"
+                style={{ color: "black", fontSize: "30px" }}
+              ></i>
+            ) : (
+              <i
+                className="icon fa-regular fa-envelope"
+                style={{
+                  color: "white",
+                  fontSize: "30px",
+                }}
+              ></i>
+            )}
+          </a>
+        </li>
       </ul>
     </div>
   );
