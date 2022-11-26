@@ -13,15 +13,19 @@ export default function Links({ theme }) {
             target="_blank"
           >
             {theme === "light" ? (
-              <img
+              <i
                 alt="github"
-                className="icon github"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg"
-              ></img>
+                className="icon fa-brands fa-github"
+                style={{ color: "black", fontSize: "30px" }}
+              ></i>
             ) : (
               <i
                 alt="github"
-                className="github devicon-github-original-wordmark"
+                className="icon fa-brands fa-github"
+                style={{
+                  color: "white",
+                  fontSize: "30px",
+                }}
               ></i>
             )}
           </a>
@@ -33,11 +37,22 @@ export default function Links({ theme }) {
             rel="noreferrer"
             target="_blank"
           >
-            <img
-              alt="linkedin"
-              className="icon"
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-            ></img>
+            {theme === "light" ? (
+              <i
+                alt="linkedin"
+                className="icon fa-brands fa-linkedin"
+                style={{ color: "black", fontSize: "30px" }}
+              ></i>
+            ) : (
+              <i
+                alt="linkedin"
+                className="icon fa-brands fa-linkedin"
+                style={{
+                  color: "white",
+                  fontSize: "30px",
+                }}
+              ></i>
+            )}
           </a>
         </li>
         <li className="link">
@@ -47,11 +62,22 @@ export default function Links({ theme }) {
             rel="noreferrer"
             target="_blank"
           >
-            <img
-              alt="twitter"
-              className="icon"
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg"
-            ></img>
+            {theme === "light" ? (
+              <i
+                alt="twitter"
+                className="icon fa-brands fa-twitter"
+                style={{ color: "black", fontSize: "30px" }}
+              ></i>
+            ) : (
+              <i
+                alt="twitter"
+                className="icon fa-brands fa-twitter"
+                style={{
+                  color: "white",
+                  fontSize: "30px",
+                }}
+              ></i>
+            )}
           </a>
         </li>
         <li className="link">
@@ -63,11 +89,13 @@ export default function Links({ theme }) {
           >
             {theme === "light" ? (
               <i
+                alt="email"
                 className="icon fa-regular fa-envelope"
                 style={{ color: "black", fontSize: "30px" }}
               ></i>
             ) : (
               <i
+                alt="email"
                 className="icon fa-regular fa-envelope"
                 style={{
                   color: "white",

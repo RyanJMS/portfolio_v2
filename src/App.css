@@ -104,16 +104,6 @@
   max-width: 50vw;
 }
 
-.icon {
-  height: 35px;
-  width: 35px;
-}
-
-.github {
-  font-size: 32px;
-  color: #eee;
-}
-
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;

@@ -18,9 +18,11 @@ function App() {
       <div className="App" id={theme}>
         <header className="header">
           <div className="switch">
-            <label>{theme === "light" ? "Light Mode" : "Dark Mode"}</label>
+            <label htmlFor="toggle-theme">
+              {theme === "light" ? "Light Mode" : "Dark Mode"}
+            </label>
             <ReactSwitch
-              name="toggle-theme"
+              id="toggle-theme"
               onChange={toggleTheme}
               checked={theme === "dark"}
             />
