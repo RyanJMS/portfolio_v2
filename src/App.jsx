@@ -39,7 +39,9 @@ function App() {
           </div>
         </main>
         <footer>
-          <p className="footer-text">&copy; Ryan Schock</p>
+          <p className="footer-text">
+            &copy; {new Date().getFullYear()} Ryan Schock
+          </p>
         </footer>
       </div>
     </ThemeContext.Provider>
