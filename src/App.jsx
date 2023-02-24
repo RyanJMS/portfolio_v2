@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, useMemo, createContext } from "react";
 import "./App.css";
 import Skills from "./pages/Skills";
 import Links from "./components/Links";
@@ -10,9 +10,25 @@ export const ThemeContext = createContext(null);
 function App() {
   const [theme, setTheme] = useState("light");
 
+  const setInitialTheme = () => {
+    if (localStorage.getItem("theme")) {
+      const currTheme = localStorage.getItem("theme");
+      setTheme(currTheme);
+    }
+  };
+
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
+    localStorage.removeItem("theme");
+    localStorage.setItem("theme", theme === "light" ? "dark" : "light");
   };
+
+  useMemo(() => {
+    setInitialTheme();
+  }, [theme]);
+
+  console.log(theme, localStorage.getItem("theme"));
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
