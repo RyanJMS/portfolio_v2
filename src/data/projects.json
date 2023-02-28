@@ -1,6 +1,22 @@
 [
   {
     "id": 1,
+    "image": "../images/movieapp.webp",
+    "title": "Movie App",
+    "description": "A movie app that allows you to search for Moives, TV Shows, and Actors. Built with Typescript, Next, Tailwind CSS and TheMovieDB API.",
+    "repoLink": "https://github.com/RyanJMS/movieapp",
+    "liveLink": "https://ryanjms-movieapp.netlify.app/"
+  },
+  {
+    "id": 2,
+    "image": "../images/weatherapp.webp",
+    "title": "Weather Dashboard",
+    "description": "A weather app built with Typescript, Vite, and the OpenWeather API.",
+    "repoLink": "https://github.com/RyanJMS/ts-weatherapp",
+    "liveLink": "https://ryanjms-weatherapp.netlify.app/"
+  },
+  {
+    "id": 3,
     "image": "../images/workout-companion.webp",
     "title": "Workout Companion",
     "description": "An app that allows users to search by body part and receive a list of exercises. Built with React, Material UI, and ExerciseDB API",
@@ -8,15 +24,7 @@
     "liveLink": "https://youthful-hugle-922ffd.netlify.app/"
   },
   {
-    "id": 2,
-    "image": "../images/imdb.webp",
-    "title": "IMDB",
-    "description": "An IMDb app used to search for films, built with the OMDb API, React, and Material UI.",
-    "repoLink": "https://github.com/RyanJMS/imdb",
-    "liveLink": "https://ryanjms.github.io/imdb/"
-  },
-  {
-    "id": 3,
+    "id": 4,
     "image": "../images/travel.webp",
     "title": "Travel Advisor",
     "description": "A travel advisor app built with React, Google-Map-React, Google Maps API, Open Weather API, Travel Advisor API, and Material UI.",
@@ -24,20 +32,12 @@
     "liveLink": "https://ryanjms.github.io/traveladvisor/"
   },
   {
-    "id": 4,
+    "id": 5,
     "image": "../images/coronapp.webp",
     "title": "CoronApp",
     "description": "This application will provide users with a curated feed of COVID-19-related news and social media content.",
     "repoLink": "https://github.com/mjsouthcott/CoronApp",
     "liveLink": "https://mjsouthcott.github.io/CoronApp/"
-  },
-  {
-    "id": 5,
-    "image": "../images/weather-dashboard.webp",
-    "title": "Weather App",
-    "description": "This is a Weather Dashboard built with HTML,CSS, Javascript, and the OpenWeatherMap API.",
-    "repoLink": "https://github.com/RyanJMS/weatherApp_hw6",
-    "liveLink": "https://ryanjms.github.io/weatherApp_hw6/"
   },
   {
     "id": 6,
