@@ -7,14 +7,7 @@
     "repoLink": "https://github.com/RyanJMS/movieapp",
     "liveLink": "https://ryanjms-movieapp.netlify.app/"
   },
-  {
-    "id": 2,
-    "image": "../images/weatherapp.webp",
-    "title": "Weather Dashboard",
-    "description": "A weather app built with Typescript, Vite, and the OpenWeather API.",
-    "repoLink": "https://github.com/RyanJMS/ts-weatherapp",
-    "liveLink": "https://ryanjms-weatherapp.netlify.app/"
-  },
+
   {
     "id": 3,
     "image": "../images/workout-companion.webp",
