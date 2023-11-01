@@ -14,7 +14,7 @@ export default function Home() {
       <div className="leading-7">
         <h1 className="text-5xl mb-2">Ryan Schock</h1>
         <h2 className="text-xl">Full Stack Web Developer</h2>
-        <h2>Ottawa, Ontario</h2>
+        <h2 className="mb-4">Ottawa, Ontario</h2>
         <Links />
       </div>
 

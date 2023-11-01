@@ -10,7 +10,13 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 export default function Links() {
   return (
     <div>
-      <Link href="https://github.com/RyanJMS">
+      <Link
+        aria-label="Visit my Github"
+        rel="noreferrer"
+        target="_blank"
+        href="https://github.com/RyanJMS"
+        className="px-2"
+      >
         <MyFontAwesomeIcon size="lg" icon={faGithub} />
       </Link>
       <Link
@@ -18,6 +24,7 @@ export default function Links() {
         href="https://www.linkedin.com/in/ryanjmschock/"
         rel="noreferrer"
         target="_blank"
+        className="px-2"
       >
         {" "}
         <MyFontAwesomeIcon size="lg" icon={faLinkedin} />
@@ -27,6 +34,7 @@ export default function Links() {
         href="https://twitter.com/dev_RyanJMS"
         rel="noreferrer"
         target="_blank"
+        className="px-2"
       >
         {" "}
         <MyFontAwesomeIcon size="lg" icon={faTwitter} />
@@ -36,6 +44,7 @@ export default function Links() {
         href="mailto:ryanjms613@gmail.com"
         rel="noreferrer"
         target="_blank"
+        className="px-2"
       >
         {" "}
         <MyFontAwesomeIcon size="lg" icon={faEnvelope} />

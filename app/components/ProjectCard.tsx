@@ -12,13 +12,7 @@ export default function ProjectCard({
   return (
     <div className="">
       <div className="flex justify-center">
-        <Image
-          width={400}
-          height={400}
-          style={{ height: 250, width: 500 }}
-          src={`/${image}`}
-          alt={title}
-        />
+        <Image width={500} height={250} src={`/${image}`} alt={title} />
       </div>
       <h2 className="text-xl my-5">{title}</h2>
       <p className="text-left mx-auto max-w-lg mb-5">{description}</p>

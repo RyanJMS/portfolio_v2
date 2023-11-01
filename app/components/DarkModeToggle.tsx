@@ -27,7 +27,12 @@ export default function DarkModeToggle() {
   };
 
   return (
-    <button className={isDarkMode ? "dark" : ""} onClick={toggleDarkMode}>
+    <button
+      id="toggleDarkMode"
+      aria-label="Toggle Dark Mode"
+      className={isDarkMode ? "dark" : ""}
+      onClick={toggleDarkMode}
+    >
       {isDarkMode ? (
         <MyFontAwesomeIcon size="2x" icon={faSun} />
       ) : (
