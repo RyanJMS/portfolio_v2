@@ -3,13 +3,13 @@
     "id": 1,
     "image": "../images/movieapp.webp",
     "title": "Movie App",
-    "description": "A movie app that allows you to search for Moives, TV Shows, and Actors. Built with Typescript, Next, Tailwind CSS and TheMovieDB API.",
+    "description": "A movie app that allows you to search for Movies, TV Shows, and Actors. Built with Typescript, Next, Tailwind CSS and TheMovieDB API.",
     "repoLink": "https://github.com/RyanJMS/movieapp",
-    "liveLink": "https://ryanjms-movieapp.netlify.app/"
+    "liveLink": "https://main.dxdbor0hka54b.amplifyapp.com/"
   },
 
   {
-    "id": 3,
+    "id": 2,
     "image": "../images/workout-companion.webp",
     "title": "Workout Companion",
     "description": "An app that allows users to search by body part and receive a list of exercises. Built with React, Material UI, and ExerciseDB API",
@@ -17,27 +17,11 @@
     "liveLink": "https://youthful-hugle-922ffd.netlify.app/"
   },
   {
-    "id": 4,
+    "id": 3,
     "image": "../images/travel.webp",
     "title": "Travel Advisor",
     "description": "A travel advisor app built with React, Google-Map-React, Google Maps API, Open Weather API, Travel Advisor API, and Material UI.",
     "repoLink": "https://github.com/RyanJMS/traveladvisor",
     "liveLink": "https://ryanjms.github.io/traveladvisor/"
-  },
-  {
-    "id": 5,
-    "image": "../images/coronapp.webp",
-    "title": "CoronApp",
-    "description": "This application will provide users with a curated feed of COVID-19-related news and social media content.",
-    "repoLink": "https://github.com/mjsouthcott/CoronApp",
-    "liveLink": "https://mjsouthcott.github.io/CoronApp/"
-  },
-  {
-    "id": 6,
-    "image": "../images/half-time.webp",
-    "title": "Half-Time",
-    "description": "This is a fantasy soccer app, as well as a general soccer hub. Built with React, and various API's.",
-    "repoLink": "https://github.com/diegolehyt/Half-Time",
-    "liveLink": "https://still-taiga-30261.herokuapp.com/"
   }
 ]
