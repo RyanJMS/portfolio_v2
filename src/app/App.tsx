@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { Github, Linkedin, Mail, ChevronRight, ArrowRight } from "lucide-react";
 import {
   SiReact,
@@ -19,11 +19,28 @@ import profile from "../assets/me.jpeg";
 import oagexplore from "../assets/oag.png";
 
 export default function App() {
+  const shouldReduceMotion = useReducedMotion();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+
+  const fadeUp = shouldReduceMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: 24 },
+        animate: { opacity: 1, y: 0 },
+      };
+
+  const fadeInView = shouldReduceMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.2 },
+      };
 
   const skills = [
     { name: "React", icon: SiReact, color: "#61DAFB" },
@@ -59,13 +76,12 @@ export default function App() {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-50/30" />
 
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 lg:py-12 w-full">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Text Content */}
-            <motion.div>
+            <div>
               <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...fadeUp}
                 transition={{ duration: 0.7, delay: 0.1 }}
                 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-foreground mb-4 tracking-tight"
               >
@@ -73,8 +89,7 @@ export default function App() {
               </motion.h1>
 
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...fadeUp}
                 transition={{ duration: 0.6, delay: 0.25 }}
                 className="text-2xl sm:text-3xl text-foreground/70 mb-6 font-medium"
               >
@@ -82,8 +97,7 @@ export default function App() {
               </motion.p>
 
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...fadeUp}
                 transition={{ duration: 0.6, delay: 0.35 }}
                 className="text-xl text-foreground/80 mb-8 leading-relaxed max-w-xl"
               >
@@ -95,41 +109,41 @@ export default function App() {
               </motion.p>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...fadeUp}
                 transition={{ duration: 0.6, delay: 0.45 }}
                 className="flex flex-wrap gap-4 mb-10"
               >
                 <motion.a
                   href="#projects"
-                  whileHover={{ scale: 1.05, x: 4 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={
+                    shouldReduceMotion ? undefined : { scale: 1.05, x: 4 }
+                  }
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
                   className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-medium inline-flex items-center gap-2 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/40 transition-all"
                 >
                   View Projects
-                  <motion.div
-                    whileHover={{ x: 4 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </motion.div>
+                  <ChevronRight className="w-5 h-5" />
                 </motion.a>
+
                 <motion.a
                   href="https://www.linkedin.com/in/ryanjmschock/"
                   target="_blank"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
+                  rel="noopener noreferrer"
+                  whileHover={shouldReduceMotion ? undefined : { scale: 1.05 }}
+                  whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
                   className="px-8 py-4 bg-white border-2 border-border text-foreground rounded-xl font-medium hover:border-primary hover:text-primary hover:shadow-lg transition-all"
                 >
                   Connect on Linkedin
                 </motion.a>
               </motion.div>
-            </motion.div>
+            </div>
 
             {/* Right: Profile Image */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.96 }}
+              animate={
+                shouldReduceMotion ? undefined : { opacity: 1, scale: 1 }
+              }
               transition={{ duration: 0.7, delay: 0.3 }}
               className="relative"
             >
@@ -139,15 +153,17 @@ export default function App() {
                   <img
                     src={profile}
                     alt="Ryan Schock - Software Developer"
-                    className="w-full h-auto"
+                    className="w-full h-auto block"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
                   />
                 </div>
               </div>
 
               {/* Social Links */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                {...fadeUp}
                 transition={{ duration: 0.6, delay: 0.65 }}
                 className="flex justify-center gap-4 mt-8"
               >
@@ -155,23 +171,31 @@ export default function App() {
                   href="https://github.com/scho0124"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.15, y: -3 }}
+                  whileHover={
+                    shouldReduceMotion ? undefined : { scale: 1.15, y: -3 }
+                  }
                   className="w-12 h-12 bg-white border-2 border-border rounded-full flex items-center justify-center hover:border-primary hover:text-primary transition-all shadow-md hover:shadow-lg"
                 >
                   <Github className="w-6 h-6" />
                 </motion.a>
+
                 <motion.a
                   href="https://www.linkedin.com/in/ryanjmschock/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.15, y: -3 }}
+                  whileHover={
+                    shouldReduceMotion ? undefined : { scale: 1.15, y: -3 }
+                  }
                   className="w-12 h-12 bg-white border-2 border-border rounded-full flex items-center justify-center hover:border-primary hover:text-primary transition-all shadow-md hover:shadow-lg"
                 >
                   <Linkedin className="w-6 h-6" />
                 </motion.a>
+
                 <motion.a
                   href="mailto:ryanjms613@gmail.com"
-                  whileHover={{ scale: 1.15, y: -3 }}
+                  whileHover={
+                    shouldReduceMotion ? undefined : { scale: 1.15, y: -3 }
+                  }
                   className="w-12 h-12 bg-white border-2 border-border rounded-full flex items-center justify-center hover:border-primary hover:text-primary transition-all shadow-md hover:shadow-lg"
                 >
                   <Mail className="w-6 h-6" />
@@ -183,12 +207,10 @@ export default function App() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-12 lg:py-12 bg-muted/30">
+      <section className="py-12 bg-muted/30">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            {...fadeInView}
             className="text-4xl sm:text-5xl font-bold text-foreground mb-16"
           >
             Skills & Technologies
@@ -197,14 +219,19 @@ export default function App() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             {skills.map((skill, idx) => {
               const Icon = skill.icon;
+
               return (
                 <motion.div
                   key={skill.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+                  whileInView={
+                    shouldReduceMotion ? undefined : { opacity: 1, y: 0 }
+                  }
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: idx * 0.05 }}
-                  whileHover={{ y: -8, scale: 1.02 }}
+                  whileHover={
+                    shouldReduceMotion ? undefined : { y: -8, scale: 1.02 }
+                  }
                   className="bg-white rounded-2xl p-6 border border-border shadow-md hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 group"
                 >
                   <div className="flex flex-col items-center text-center">
@@ -234,12 +261,7 @@ export default function App() {
         className="py-24 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-blue-50/30"
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
+          <motion.div {...fadeInView} className="mb-12">
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
               Featured Project
             </span>
@@ -249,11 +271,11 @@ export default function App() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ delay: 0.2 }}
-            whileHover={{ y: -4 }}
+            whileHover={shouldReduceMotion ? undefined : { y: -4 }}
             className="bg-white rounded-3xl overflow-hidden border border-border shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 cursor-pointer"
           >
             <div className="grid lg:grid-cols-2 gap-0">
@@ -266,10 +288,10 @@ export default function App() {
 
                 <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
                   Led a 4-month collaborative project to design and build a
-                  comprehensive mobile frist wayfinding web application for the
+                  comprehensive mobile-first wayfinding web application for the
                   Ottawa Art Gallery. The app helps visitors navigate the
                   gallery space, discover exhibits, and enhance their museum
-                  experience. The app also expands the gallery's digital
+                  experience. The app also expands the gallery&apos;s digital
                   tooling, including a fully automated reporting pipeline to
                   deliver actionable visitor insights including satisfaction and
                   QR code analytics indicating areas that could benefit from
@@ -305,14 +327,14 @@ export default function App() {
                   </div>
                 </div>
 
-                <motion.button
-                  whileHover={{ scale: 1.02, x: 4 }}
-                  whileTap={{ scale: 0.98 }}
+                <a
+                  target="_blank"
+                  href="https://student-oag.github.io/OAG_Explore_Client/location/l0_entrypoint_daly"
                   className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-medium inline-flex items-center gap-2 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 transition-all w-fit"
                 >
-                  View Case Study
+                  Try it out
                   <ArrowRight className="w-5 h-5" />
-                </motion.button>
+                </a>
               </div>
 
               <div className="relative h-full min-h-[400px] lg:min-h-0">
@@ -321,6 +343,8 @@ export default function App() {
                   src={oagexplore}
                   alt="OAG Explore, a wayfinding solution built for the Ottawa Art Gallery."
                   className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -332,9 +356,7 @@ export default function App() {
       <section className="py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            {...fadeInView}
             className="text-4xl sm:text-5xl font-bold text-foreground mb-16"
           >
             Additional Projects
@@ -344,12 +366,16 @@ export default function App() {
             {projects.map((project, idx) => (
               <motion.a
                 key={project.title}
-                href={`#project-${project.title.toLowerCase().replace(/\s+/g, "-")}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                href={`#project-${project.title
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")}`}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+                whileInView={
+                  shouldReduceMotion ? undefined : { opacity: 1, y: 0 }
+                }
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: idx * 0.1 }}
-                whileHover={{ y: -8 }}
+                whileHover={shouldReduceMotion ? undefined : { y: -8 }}
                 className="bg-white rounded-2xl p-8 border border-border shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 cursor-pointer group block"
               >
                 <div className="flex items-start justify-between mb-4">
@@ -358,14 +384,16 @@ export default function App() {
                   </h3>
                   <motion.div
                     className="text-muted-foreground group-hover:text-primary transition-colors"
-                    whileHover={{ x: 4 }}
+                    whileHover={shouldReduceMotion ? undefined : { x: 4 }}
                   >
                     <ArrowRight className="w-5 h-5" />
                   </motion.div>
                 </div>
+
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   {project.description}
                 </p>
+
                 <div className="flex flex-wrap gap-2 pt-4 border-t border-border/50">
                   {project.stack.map((tech) => (
                     <span
@@ -376,6 +404,7 @@ export default function App() {
                     </span>
                   ))}
                 </div>
+
                 <div className="mt-6 inline-flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all">
                   View Project
                   <ChevronRight className="w-4 h-4" />
@@ -395,28 +424,37 @@ export default function App() {
                 href="https://github.com/scho0124"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.2, y: -2 }}
+                whileHover={
+                  shouldReduceMotion ? undefined : { scale: 1.2, y: -2 }
+                }
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Github className="w-6 h-6" />
               </motion.a>
+
               <motion.a
                 href="https://www.linkedin.com/in/ryanjmschock/"
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.2, y: -2 }}
+                whileHover={
+                  shouldReduceMotion ? undefined : { scale: 1.2, y: -2 }
+                }
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Linkedin className="w-6 h-6" />
               </motion.a>
+
               <motion.a
                 href="mailto:ryanjms613@gmail.com"
-                whileHover={{ scale: 1.2, y: -2 }}
+                whileHover={
+                  shouldReduceMotion ? undefined : { scale: 1.2, y: -2 }
+                }
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="w-6 h-6" />
               </motion.a>
             </div>
+
             <p className="text-center text-muted-foreground text-sm">
               © 2026 Ryan Schock · Built with React & TypeScript
             </p>
