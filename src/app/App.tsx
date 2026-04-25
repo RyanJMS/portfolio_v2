@@ -11,10 +11,12 @@ import {
   SiMysql,
   SiMongodb,
   SiGit,
-  SiFirebase,
   SiFigma,
+  SiExpress,
+  SiResend,
 } from "react-icons/si";
 import profile from "../assets/me.jpeg";
+import oagexplore from "../assets/oag.png";
 
 export default function App() {
   const [formData, setFormData] = useState({
@@ -33,7 +35,7 @@ export default function App() {
     { name: "SQL", icon: SiMysql, color: "#4479A1" },
     { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
     { name: "Git", icon: SiGit, color: "#F05032" },
-    { name: "Figma", icon: SiFigma, color: "#333" },
+    { name: "Figma", icon: SiFigma, color: "#7F52FF" },
   ];
 
   const projects = [
@@ -51,18 +53,13 @@ export default function App() {
     },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-  };
-
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-50/30" />
 
-        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-24 lg:py-32 w-full">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 lg:py-12 w-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Text Content */}
             <motion.div>
@@ -81,7 +78,7 @@ export default function App() {
                 transition={{ duration: 0.6, delay: 0.25 }}
                 className="text-2xl sm:text-3xl text-foreground/70 mb-6 font-medium"
               >
-                Full Stack Developer
+                Software Developer
               </motion.p>
 
               <motion.p
@@ -90,10 +87,11 @@ export default function App() {
                 transition={{ duration: 0.6, delay: 0.35 }}
                 className="text-xl text-foreground/80 mb-8 leading-relaxed max-w-xl"
               >
-                Full stack developer building intuitive mobile and web
+                Software developer building intuitive mobile and web
                 applications with modern technologies. Proven experience leading
-                projects from concept to delivery, including a top 3 finish out
-                of 100+ teams for an Ottawa Art Gallery wayfinding app.
+                development projects from concept to delivery, including a top 3
+                finish out of 110 teams for OAG Explore, a wayfinding web
+                experience built for the Ottawa Art Gallery.
               </motion.p>
 
               <motion.div
@@ -117,40 +115,14 @@ export default function App() {
                   </motion.div>
                 </motion.a>
                 <motion.a
-                  href="#contact"
+                  href="https://www.linkedin.com/in/ryanjmschock/"
+                  target="_blank"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                   className="px-8 py-4 bg-white border-2 border-border text-foreground rounded-xl font-medium hover:border-primary hover:text-primary hover:shadow-lg transition-all"
                 >
-                  Contact Me
+                  Connect on Linkedin
                 </motion.a>
-              </motion.div>
-
-              {/* Quick Highlights */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.55 }}
-                className="flex flex-wrap gap-4"
-              >
-                <div className="flex items-center gap-2 px-4 py-2 bg-white border border-border rounded-lg shadow-sm">
-                  <span className="text-2xl">🏆</span>
-                  <span className="text-sm font-medium text-foreground/80">
-                    Top 3 / 100+ projects
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-white border border-border rounded-lg shadow-sm">
-                  <span className="text-2xl">📱</span>
-                  <span className="text-sm font-medium text-foreground/80">
-                    Mobile + Web Developer
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-white border border-border rounded-lg shadow-sm">
-                  <span className="text-2xl">⚡</span>
-                  <span className="text-sm font-medium text-foreground/80">
-                    React / Swift / Flutter
-                  </span>
-                </div>
               </motion.div>
             </motion.div>
 
@@ -166,7 +138,7 @@ export default function App() {
                 <div className="relative bg-white rounded-3xl overflow-hidden shadow-2xl border-2 border-border/50">
                   <img
                     src={profile}
-                    alt="Ryan Schock - Full Stack Developer"
+                    alt="Ryan Schock - Software Developer"
                     className="w-full h-auto"
                   />
                 </div>
@@ -210,100 +182,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-24 lg:py-32 bg-gradient-to-b from-white to-muted/30">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-12">
-              About Me
-            </h2>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="bg-white rounded-2xl p-6 border border-border shadow-md"
-              >
-                <div className="text-4xl mb-4">🎓</div>
-                <h3 className="font-semibold text-foreground mb-2">
-                  Education
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Recent graduate in Mobile Application Design & Development
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="bg-white rounded-2xl p-6 border border-border shadow-md"
-              >
-                <div className="text-4xl mb-4">💼</div>
-                <h3 className="font-semibold text-foreground mb-2">
-                  Experience
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Full-stack development across mobile and web platforms
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="bg-white rounded-2xl p-6 border border-border shadow-md"
-              >
-                <div className="text-4xl mb-4">🎯</div>
-                <h3 className="font-semibold text-foreground mb-2">Focus</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Intuitive UX, clean code, and scalable architecture
-                </p>
-              </motion.div>
-            </div>
-
-            <div className="space-y-6 text-lg text-foreground/80 leading-relaxed">
-              <p>
-                I’m a full stack developer who enjoys solving complex problems
-                and building applications that are both practical and
-                user-friendly. I focus on clean design, accessibility, and
-                creating experiences that feel seamless from start to finish.
-                I’ve worked across the full stack, developing native mobile apps
-                and modern web applications using technologies like React,
-                Swift, Flutter, and Node. I’m comfortable taking ownership of
-                projects, contributing to technical direction, and collaborating
-                to bring ideas to life. My work includes leading development on
-                a large-scale mobile wayfinding app for the Ottawa Art Gallery,
-                recognized with a top 3 finish out of 100+ projects. I’m
-                currently looking for opportunities to continue growing as a
-                developer, contribute to strong teams, and build products that
-                have real impact.
-              </p>
-            </div>
-
-            <div className="mt-10 flex flex-wrap gap-3">
-              <span className="px-5 py-2.5 bg-primary text-primary-foreground rounded-lg text-sm font-medium shadow-md">
-                Available for opportunities
-              </span>
-              <span className="px-5 py-2.5 bg-white border-2 border-border rounded-lg text-sm font-medium hover:border-primary transition-colors shadow-sm">
-                Open to collaboration
-              </span>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Skills Section */}
-      <section className="py-24 lg:py-32 bg-muted/30">
+      <section className="py-12 lg:py-12 bg-muted/30">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -364,9 +244,7 @@ export default function App() {
               Featured Project
             </span>
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground">
-              Ottawa Art Gallery
-              <br />
-              Wayfinding App
+              OAG Explore
             </h2>
           </motion.div>
 
@@ -388,15 +266,19 @@ export default function App() {
 
                 <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
                   Led a 4-month collaborative project to design and build a
-                  comprehensive mobile wayfinding application for the Ottawa Art
-                  Gallery. The app helps visitors navigate the gallery space,
-                  discover exhibits, and enhance their museum experience.
+                  comprehensive mobile frist wayfinding web application for the
+                  Ottawa Art Gallery. The app helps visitors navigate the
+                  gallery space, discover exhibits, and enhance their museum
+                  experience. The app also expands the gallery's digital
+                  tooling, including a fully automated reporting pipeline to
+                  deliver actionable visitor insights including satisfaction and
+                  QR code analytics indicating areas that could benefit from
+                  improved signage.
                 </p>
 
                 <div className="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/50 rounded-xl p-6 mb-8">
                   <p className="text-foreground font-medium flex items-center gap-2">
-                    <span className="text-2xl">🏆</span>
-                    Placed 3rd out of 100+ projects at the program showcase
+                    Placed 3rd out of 110 projects at the applied research day.
                   </p>
                 </div>
 
@@ -406,32 +288,19 @@ export default function App() {
                   </h4>
                   <div className="flex flex-wrap gap-3">
                     <span className="px-4 py-2 bg-white border border-border rounded-lg text-sm font-medium flex items-center gap-2 shadow-sm">
-                      <SiSwift
-                        style={{ color: "#FA7343" }}
-                        className="w-4 h-4"
-                      />
-                      Swift
+                      <SiReact className="w-6 h-6 text-blue-300" />
+                      React
                     </span>
                     <span className="px-4 py-2 bg-white border border-border rounded-lg text-sm font-medium flex items-center gap-2 shadow-sm">
-                      <SiFlutter
+                      <SiExpress
                         style={{ color: "#02569B" }}
-                        className="w-4 h-4"
+                        className="w-6 h-6"
                       />
-                      Flutter
+                      Express
                     </span>
                     <span className="px-4 py-2 bg-white border border-border rounded-lg text-sm font-medium flex items-center gap-2 shadow-sm">
-                      <SiFirebase
-                        style={{ color: "#FFCA28" }}
-                        className="w-4 h-4"
-                      />
-                      Firebase
-                    </span>
-                    <span className="px-4 py-2 bg-white border border-border rounded-lg text-sm font-medium flex items-center gap-2 shadow-sm">
-                      <SiFigma
-                        style={{ color: "#F24E1E" }}
-                        className="w-4 h-4"
-                      />
-                      Figma
+                      <SiResend style={{ color: "#333" }} className="w-6 h-6" />
+                      Resend
                     </span>
                   </div>
                 </div>
@@ -449,8 +318,8 @@ export default function App() {
               <div className="relative h-full min-h-[400px] lg:min-h-0">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-purple-100/50" />
                 <img
-                  src="https://images.unsplash.com/photo-1750056393326-8feed2a1c34f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                  alt="Ottawa Art Gallery Wayfinding App interface"
+                  src={oagexplore}
+                  alt="OAG Explore, a wayfinding solution built for the Ottawa Art Gallery."
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
@@ -514,106 +383,6 @@ export default function App() {
               </motion.a>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section
-        id="contact"
-        className="py-24 lg:py-32 bg-gradient-to-b from-white to-muted/30"
-      >
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-8">
-              Let's connect
-            </h2>
-            <p className="text-lg text-muted-foreground mb-12">
-              I'm currently seeking new opportunities. Feel free to reach out if
-              you'd like to connect or discuss potential collaborations.
-            </p>
-
-            <motion.form
-              onSubmit={handleSubmit}
-              className="bg-white rounded-2xl p-8 shadow-xl border border-border mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <div className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-foreground mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    className="w-full px-6 py-4 bg-input-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-foreground transition-all"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-foreground mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    className="w-full px-6 py-4 bg-input-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-foreground transition-all"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-foreground mb-2"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    rows={6}
-                    className="w-full px-6 py-4 bg-input-background border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary text-foreground resize-none transition-all"
-                    required
-                  />
-                </div>
-
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full px-8 py-4 bg-primary text-primary-foreground rounded-xl font-medium shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 transition-all"
-                >
-                  Send Message
-                </motion.button>
-              </div>
-            </motion.form>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            ></motion.div>
-          </motion.div>
         </div>
       </section>
 
