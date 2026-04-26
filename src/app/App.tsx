@@ -17,6 +17,7 @@ import {
 } from "react-icons/si";
 import profile from "../assets/me.jpeg";
 import oagexplore from "../assets/oag.png";
+import visualizer from "../assets/visualizer.gif";
 
 export default function App() {
   const shouldReduceMotion = useReducedMotion();
@@ -57,16 +58,12 @@ export default function App() {
 
   const projects = [
     {
-      title: "Task Management Dashboard",
+      title: "Audio Visualizer",
       description:
-        "Full-stack task tracking app with real-time updates and collaborative features",
-      stack: ["React", "Node.js", "MongoDB"],
-    },
-    {
-      title: "Weather Forecast App",
-      description:
-        "Clean, minimalist weather application with location-based forecasts",
-      stack: ["Flutter", "REST API"],
+        "An audio visualizer built with React. Currently uses the Spotify API to use option controls and collect track information. However, because Spotify is streaming, the application has no access to audio frequencies from the file -- therefore to use this app you need to have a virtual audio device to capture the system audio (using Blackhole), and the visualizer will visualize all audio -- not just Spotify.",
+      stack: ["React", "Tailwind CSS"],
+      previewImage: visualizer,
+      repoUrl: "https://github.com/scho0124/audio_visualizer",
     },
   ];
 
@@ -364,11 +361,8 @@ export default function App() {
 
           <div className="grid sm:grid-cols-2 gap-8">
             {projects.map((project, idx) => (
-              <motion.a
+              <motion.article
                 key={project.title}
-                href={`#project-${project.title
-                  .toLowerCase()
-                  .replace(/\s+/g, "-")}`}
                 initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
                 whileInView={
                   shouldReduceMotion ? undefined : { opacity: 1, y: 0 }
@@ -376,40 +370,58 @@ export default function App() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={shouldReduceMotion ? undefined : { y: -8 }}
-                className="bg-white rounded-2xl p-8 border border-border shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 cursor-pointer group block"
+                className="bg-white rounded-2xl overflow-hidden border border-border shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 group"
               >
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <motion.div
-                    className="text-muted-foreground group-hover:text-primary transition-colors"
-                    whileHover={shouldReduceMotion ? undefined : { x: 4 }}
+                <div className="aspect-square bg-muted/40 overflow-hidden">
+                  {project.previewImage ? (
+                    <img
+                      src={project.previewImage}
+                      alt={`${project.title} preview`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-muted-foreground">
+                      Project preview coming soon
+                    </div>
+                  )}
+                </div>
+
+                <div className="p-8">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </div>
+
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 pt-4 border-t border-border/50">
+                    {project.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1.5 bg-secondary/80 text-secondary-foreground rounded-lg text-sm font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <a
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 px-5 py-3 bg-primary text-primary-foreground rounded-xl font-medium inline-flex items-center gap-2 shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all"
                   >
-                    <ArrowRight className="w-5 h-5" />
-                  </motion.div>
+                    Visit Repo
+                    <Github className="w-4 h-4" />
+                  </a>
                 </div>
-
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-border/50">
-                  {project.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1.5 bg-secondary/80 text-secondary-foreground rounded-lg text-sm font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-6 inline-flex items-center gap-2 text-primary font-medium text-sm group-hover:gap-3 transition-all">
-                  View Project
-                  <ChevronRight className="w-4 h-4" />
-                </div>
-              </motion.a>
+              </motion.article>
             ))}
           </div>
         </div>
