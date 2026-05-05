@@ -18,6 +18,7 @@ import {
 import profile from "../assets/me.jpeg";
 import oagexplore from "../assets/oag.png";
 import visualizer from "../assets/visualizer.gif";
+import music from "../assets/music.png";
 
 export default function App() {
   const shouldReduceMotion = useReducedMotion();
@@ -64,6 +65,14 @@ export default function App() {
       stack: ["React", "Tailwind CSS"],
       previewImage: visualizer,
       repoUrl: "https://github.com/scho0124/audio_visualizer",
+    },
+    {
+      title: "Music Library",
+      description:
+        "Developed a desktop music library using Tauri (Rust) and React (TypeScript), integrating filesystem scanning, metadata extraction, and SQLite-based persistence. Designed a modular architecture where Rust handles file I/O, audio analysis, and database operations, while React manages UI state and user interactions.",
+      stack: ["Tauri", "React", "Shadcn", "SQLite", "Tailwind CSS"],
+      previewImage: music,
+      repoUrl: "https://github.com/scho0124/Music_Library",
     },
   ];
 
